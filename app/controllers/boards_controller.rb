@@ -1,12 +1,8 @@
 class BoardsController < ApplicationController
   def index
-    respond_to do |format|
-      format.html do # index.html.erb
-        @boards = Board.all
-        @boards = params[:view].present? ? @boards : Kaminari.paginate_array(@boards).page(params[:page])
-        @board = Board.new
-      end
-    end
+    @boards = Board.search(params[:query])
+    @boards = params[:view].present? ? @boards : Kaminari.paginate_array(@boards).page(params[:page])
+    @board = Board.new
   end
 
   def create

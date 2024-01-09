@@ -24,13 +24,15 @@
             </li>
           </ol>
         </nav>
-        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All boards</h1>
+        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
+          <%= params[:query].present? ? "Results matching '#{params[:query]}'" : "All boards" %>
+        </h1>
       </div>
       <div class="sm:flex">
         <div class="items-center hidden mb-3 sm:flex sm:divide-x sm:divide-gray-100 sm:mb-0 dark:divide-gray-700">
-          <form>
+          <form action="/">
             <div class="relative mt-1 lg:w-64 xl:w-96">
-              <input type="search", class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search for boards">
+              <input name="query" value="<%= params[:query]%>" type="search", class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Search for boards">
             </div>
           </form>
         </div>
@@ -58,11 +60,11 @@
 
   <div class="flex flex-row-reverse bg-white pr-4">
     <% if params[:view] == "expanded" %>
-      <%= link_to root_url, class: "my-4 inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" do %>
+      <%= link_to root_url(query: params[:query]), class: "my-4 inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" do %>
         View list
       <% end %>
     <% else %>
-      <%= link_to root_url(view: "expanded"), class: "mb-4 inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" do %>
+      <%= link_to root_url(query: params[:query], view: "expanded"), class: "mb-4 inline-flex items-center justify-center w-1/2 px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 sm:w-auto dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" do %>
         View all boards
       <% end %>
     <% end %>

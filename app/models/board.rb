@@ -3,6 +3,12 @@ class Board < ApplicationRecord
 
   MAX_ATTEMPTS = 1000
 
+  def self.search(query)
+    return all if query.blank?
+
+    where("name LIKE ?", "%#{query}%")
+  end
+
   def place_mines!
     raise ArgumentError if width.zero? || height.zero?
 
