@@ -1,0 +1,5 @@
+<div class="flex flex-col">
+  <% boards.each do |board| %>
+    <%= render partial: "shared/board", locals: { board: board } %>
+  <% end %>
+</div>

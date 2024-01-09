@@ -10,7 +10,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-white dark:bg-gray-800" data-controller="navigation">
+    <%= render 'layouts/top_navigation' %>
+    <div class="flex pt-16 overflow-hidden bg-gray-50">
+      <%= render 'layouts/side_navigation' %>
+      <main class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
