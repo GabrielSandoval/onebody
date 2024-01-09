@@ -1,5 +1,5 @@
-import { Controller } from "@hotwired/stimulus";
-import BoardForm from "../boards/form";
+import { Controller } from '@hotwired/stimulus';
+import BoardForm from '../boards/form';
 
 // Connects to data-controller="boards"
 export default class extends Controller {
@@ -11,11 +11,11 @@ export default class extends Controller {
   private form: BoardForm | null;
 
   static targets = [
-    "addModal",
-    "confirmDestroy",
-    "destroyModal",
-    "editModal",
-    "modalBackdrop",
+    'addModal',
+    'confirmDestroy',
+    'destroyModal',
+    'editModal',
+    'modalBackdrop',
   ];
 
   connect() {}
@@ -23,19 +23,19 @@ export default class extends Controller {
   add() {
     this.form = new BoardForm({
       url: `/boards`,
-      formElement: this.addModalTarget.querySelector("form")!,
+      formElement: this.addModalTarget.querySelector('form')!,
       onSubmitCallback: this.onSubmitCallback.bind(this),
     });
 
-    this.modalBackdropTarget.classList.remove("hidden");
-    this.addModalTarget.classList.add("flex");
-    this.addModalTarget.classList.remove("hidden");
+    this.modalBackdropTarget.classList.remove('hidden');
+    this.addModalTarget.classList.add('flex');
+    this.addModalTarget.classList.remove('hidden');
   }
 
   closeAddModal() {
-    this.modalBackdropTarget.classList.add("hidden");
-    this.addModalTarget.classList.add("hidden");
-    this.addModalTarget.classList.remove("flex");
+    this.modalBackdropTarget.classList.add('hidden');
+    this.addModalTarget.classList.add('hidden');
+    this.addModalTarget.classList.remove('flex');
 
     this.form?.clear();
     this.form = null;
@@ -50,20 +50,20 @@ export default class extends Controller {
 
     this.form = new BoardForm({
       url: `/boards/${boardId}`,
-      formElement: this.editModalTarget.querySelector("form")!,
+      formElement: this.editModalTarget.querySelector('form')!,
       onSubmitCallback: this.onSubmitCallback.bind(this),
       update: true,
     });
 
-    this.modalBackdropTarget.classList.remove("hidden");
-    this.editModalTarget.classList.add("flex");
-    this.editModalTarget.classList.remove("hidden");
+    this.modalBackdropTarget.classList.remove('hidden');
+    this.editModalTarget.classList.add('flex');
+    this.editModalTarget.classList.remove('hidden');
   }
 
   closeEditModal() {
-    this.modalBackdropTarget.classList.add("hidden");
-    this.editModalTarget.classList.add("hidden");
-    this.editModalTarget.classList.remove("flex");
+    this.modalBackdropTarget.classList.add('hidden');
+    this.editModalTarget.classList.add('hidden');
+    this.editModalTarget.classList.remove('flex');
 
     this.form?.clear();
     this.form = null;
@@ -73,15 +73,15 @@ export default class extends Controller {
     const serviceId = (e.target as HTMLElement).dataset?.id;
 
     this.confirmDestroyTarget.action = `/boards/${serviceId}`;
-    this.modalBackdropTarget.classList.remove("hidden");
-    this.destroyModalTarget.classList.add("flex");
-    this.destroyModalTarget.classList.remove("hidden");
+    this.modalBackdropTarget.classList.remove('hidden');
+    this.destroyModalTarget.classList.add('flex');
+    this.destroyModalTarget.classList.remove('hidden');
   }
 
   closeDestroyModal() {
-    this.modalBackdropTarget.classList.add("hidden");
-    this.destroyModalTarget.classList.add("hidden");
-    this.destroyModalTarget.classList.remove("flex");
+    this.modalBackdropTarget.classList.add('hidden');
+    this.destroyModalTarget.classList.add('hidden');
+    this.destroyModalTarget.classList.remove('flex');
   }
 
   onSubmitCallback() {

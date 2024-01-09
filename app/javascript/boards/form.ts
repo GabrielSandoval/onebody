@@ -48,7 +48,7 @@ export default class BoardForm {
     ) as HTMLInputElement;
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.formElement.addEventListener("turbo:submit-end", this.onFormSubmit);
+    this.formElement.addEventListener('turbo:submit-end', this.onFormSubmit);
 
     if (!update) {
       return;
@@ -58,11 +58,11 @@ export default class BoardForm {
   }
 
   public fill(data: BoardFormData) {
-    this.emailField.value = data.email || "";
-    this.nameField.value = data.name || "";
-    this.widthField.value = data.width || "";
-    this.heightField.value = data.height || "";
-    this.numMinesField.value = data.num_mines || "";
+    this.emailField.value = data.email || '';
+    this.nameField.value = data.name || '';
+    this.widthField.value = data.width || '';
+    this.heightField.value = data.height || '';
+    this.numMinesField.value = data.num_mines || '';
   }
 
   public onFormSubmit() {
@@ -71,11 +71,11 @@ export default class BoardForm {
   }
 
   public clear() {
-    this.emailField.value = "";
-    this.nameField.value = "";
-    this.widthField.value = "";
-    this.heightField.value = "";
-    this.numMinesField.value = "";
+    this.emailField.value = '';
+    this.nameField.value = '';
+    this.widthField.value = '';
+    this.heightField.value = '';
+    this.numMinesField.value = '';
   }
 
   private fetchData(
@@ -84,7 +84,7 @@ export default class BoardForm {
   ) {
     fetch(url, {
       headers: {
-        accept: "application/json",
+        accept: 'application/json',
       },
     })
       .then((response) => response.json())
