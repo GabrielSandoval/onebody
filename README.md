@@ -2,7 +2,7 @@
 
 💣 Preview:
 
-![Onebody preview](https://github.com/GabrielSandoval/onebody/assets/6015897/e591e466-2530-4f7d-a7fd-0aa02969da15)
+![Onebody preview](https://github.com/GabrielSandoval/onebody/assets/6015897/6379ea9a-9801-4182-8546-29664826f4c6)
 
 
 ## Setup
