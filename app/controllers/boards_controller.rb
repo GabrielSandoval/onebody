@@ -37,7 +37,10 @@ class BoardsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to params[:redirect_url] || board_url(@board), notice: "Board was successfully updated."
+        redirect_to params[:redirect_url] || board_url(@board, format: :html), notice: "Board was successfully updated."
+      end
+      format.turbo_stream do
+        redirect_to board_url(@board, format: :html), notice: "Board was successfully updated."
       end
       format.json do
         render json: @board, status: :ok

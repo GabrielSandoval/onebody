@@ -4,9 +4,10 @@ class Board < ApplicationRecord
   MAX_ATTEMPTS = 1000
 
   def self.search(query)
-    return all if query.blank?
+    results = all.order("created_at desc, name")
+    return results if query.blank?
 
-    where("name LIKE ?", "%#{query}%")
+    results.where("name LIKE ?", "%#{query}%")
   end
 
   def place_mines!
