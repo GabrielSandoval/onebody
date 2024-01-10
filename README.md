@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+💣 Preview:
 
-Things you may want to cover:
+![Onebody preview](https://github.com/GabrielSandoval/onebody/assets/6015897/e591e466-2530-4f7d-a7fd-0aa02969da15)
+
+
+## Setup
 
 * Ruby version
+`3.2.2`
 
-* System dependencies
+* Clone the app
 
-* Configuration
+  ```
+  git clone git@github.com:GabrielSandoval/onebody.git
+  ```
 
-* Database creation
+* Move to app directory
 
-* Database initialization
+  ```
+  cd onebody
+  ```
 
-* How to run the test suite
+* Install gems
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```
+  bundle install
+  ```
 
-* Deployment instructions
+* Database setup
 
-* ...
+  ```
+  rails db:create
+  rails db:migrate
+  rails db:seed  # populate your database with demo boards
+  ```
+
+* Start the rails server and visit `http://localhost:3000`:
+  ```
+  bin/dev
+  ```
+
+  ![Onebody Snap](https://github.com/GabrielSandoval/onebody/assets/6015897/7a712e06-3954-4d60-b976-84736d8234fb)
+
+
+## Deployment
+
+  ```
+  git push heroku main
+  ```
